@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Navigation | Hoverable Sidebar Menu</title>
+  <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+  
+<!-- partial:index.partial.html -->
+<div class="sidebar">
+  <div class="logo-details">
+    <i class='bx bxl-c-plus-plus icon'></i>
+    <div class="logo_name">Travell Lmo</div>
+    <i class='bx bx-menu' id="btn"></i>
+  </div>
+  <ul class="nav-list">
+    <li>
+      <i class='bx bx-search'></i>
+      <input type="text" placeholder="Search...">
+      <span class="tooltip">Search</span>
+    </li>
+    <li>
+      <a href="index.html">
+        <i class='bx bx-grid-alt'></i>
+        <span class="links_name">Dashboard</span>
+      </a>
+      <span class="tooltip">Dashboard</span>
+    </li>
+    <li>
+      <a href="#">
+        <i class='bx bx-user'></i>
+        <span class="links_name">User</span>
+      </a>
+      <span class="tooltip">User</span>
+    </li>
+    <li>
+      <a href="#">
+        <i class='bx bx-chat'></i>
+        <span class="links_name">Voyage</span>
+      </a>
+      <span class="tooltip">Voyage</span>
+    </li>
+    <li>
+      <a href="hotel.html">
+        <i class='bx bx-pie-chart-alt-2'></i>
+        <span class="links_name">Hotels</span>
+      </a>
+      <span class="tooltip">Hotels</span>
+    </li>
+    <li>
+      <a href="#">
+        <i class='bx bx-folder'></i>
+        <span class="links_name">Restaurent</span>
+      </a>
+      <span class="tooltip">Files</span>
+    </li>
+    <li>
+      <a href="#">
+        <i class='bx bx-cart-alt'></i>
+        <span class="links_name">Photo</span>
+      </a>
+      <span class="tooltip">photo</span>
+    </li>
+    <li>
+      <a href="#">
+        <i class='bx bx-heart'></i>
+        <span class="links_name">video</span>
+      </a>
+      <span class="tooltip">video</span>
+    </li>
+    <li>
+      <a href="#">
+        <i class='bx bx-cog'></i>
+        <span class="links_name">Setting</span>
+      </a>
+      <span class="tooltip">Setting</span>
+    </li>
+    <li class="profile">
+      <div class="profile-details">
+        <img src="https://drive.google.com/uc?export=view&id=1ETZYgPpWbbBtpJnhi42_IR3vOwSOpR4z" alt="profileImg">
+        <div class="name_job">
+          <div class="name">Travell Lmo</div>
+          <div class="job">Guelma</div>
+        </div>
+      </div>
+      <i class='bx bx-log-out' id="log_out"></i>
+    </li>
+  </ul>
+</div>
+<section class="home-section">
+  <div class="text">Dashboard</div>
+  <div class="card-container">
+  <div class="card">
+    <!-- <img src="./pic/img2.jpg"> -->
+    <h4>Users</h4>
+    <p>Progammer</p>
+    <div class="per">
+      <table>
+        <tr>
+          <td><span>82%</span></td>
+          <td><span>85%</span></td>
+        </tr>
+        <tr>
+          <td>Month</td>
+          <td>Year</td>
+        </tr>
+      </table>
+    </div>
+    <a href="">
+      <button>Details</button>
+    </a>
+  </div>
+  <div class="card">
+    <!-- <img src="./pic/img3.jpg"> -->
+    <h4>Voyages</h4>
+    <p>tester</p>
+    <div class="per">
+      <table>
+        <tr>
+          <td><span>94%</span></td>
+          <td><span>92%</span></td>
+        </tr>
+        <tr>
+          <td>Month</td>
+          <td>Year</td>
+        </tr>
+      </table>
+    </div>
+    <a href="">
+      <button>Details</button>
+    </a>
+  </div>
+  <div class="card">
+    <!-- <img src="./pic/img4.jpg"> -->
+    <h4>Hotels</h4>
+    <p>Ui designer</p>
+    <div class="per">
+      <table>
+        <tr>
+          <td><span>85%</span></td>
+          <td><span>82%</span></td>
+        </tr>
+        <tr>
+          <td>Month</td>
+          <td>Year</td>
+        </tr>
+      </table>
+    </div>
+    <a href="hotel.html">
+      <button>Details</button>
+    </a>
+  </div>
+  <div class="card">
+    <!-- <img src="./pic/img4.jpg"> -->
+    <h4>Restaurant</h4>
+    <p>Ui designer</p>
+    <div class="per">
+      <table>
+        <tr>
+          <td><span>85%</span></td>
+          <td><span>82%</span></td>
+        </tr>
+        <tr>
+          <td>Month</td>
+          <td>Year</td>
+        </tr>
+      </table>
+    </div>
+    <a href="">
+      <button>Details</button>
+    </a>
+  </div>
+</div>
+<div class="card-container">
+  <div class="card">
+    <!-- <img src="./pic/img2.jpg"> -->
+    <h4>Photo</h4>
+    <p>Progammer</p>
+    <div class="per">
+      <table>
+        <tr>
+          <td><span>82%</span></td>
+          <td><span>85%</span></td>
+        </tr>
+        <tr>
+          <td>Month</td>
+          <td>Year</td>
+        </tr>
+      </table>
+    </div>
+    <a href="">
+      <button>Details</button>
+    </a>
+  </div>
+  <div class="card">
+    <!-- <img src="./pic/img3.jpg"> -->
+    <h4>Video</h4>
+    <p>tester</p>
+    <div class="per">
+      <table>
+        <tr>
+          <td><span>94%</span></td>
+          <td><span>92%</span></td>
+        </tr>
+        <tr>
+          <td>Month</td>
+          <td>Year</td>
+        </tr>
+      </table>
+    </div>
+    <a href="">
+      <button>Details</button>
+    </a>
+  </div>
+  <div class="card">
+    <!-- <img src="./pic/img4.jpg"> -->
+    <h4>News</h4>
+    <p>News</p>
+    <div class="per">
+      <table>
+        <tr>
+          <td><span>85%</span></td>
+          <td><span>82%</span></td>
+        </tr>
+        <tr>
+          <td>Month</td>
+          <td>Year</td>
+        </tr>
+      </table>
+    </div>
+    <a href="">
+      <button>Details</button>
+    </a>
+  </div>
+  <!-- <div class="card">
+     <img src="./pic/img4.jpg"> 
+    <h4>Salina micheal</h4>
+    <p>Ui designer</p>
+    <div class="per">
+      <table>
+        <tr>
+          <td><span>85%</span></td>
+          <td><span>82%</span></td>
+        </tr>
+        <tr>
+          <td>Month</td>
+          <td>Year</td>
+        </tr>
+      </table>
+    </div>
+    <button>Profile</button>
+  </div> -->
+</div>
+</div>
+
+<!-- <section class="attendance">
+  <div class="attendance-list">
+    <h1>Attendance List</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Depart</th>
+          <th>Date</th>
+          <th>Join Time</th>
+          <th>Logout Time</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>01</td>
+          <td>Sam David</td>
+          <td>Design</td>
+          <td>03-24-22</td>
+          <td>8:00AM</td>
+          <td>3:00PM</td>
+          <td><button>View</button></td>
+        </tr>
+        <tr class="active">
+          <td>02</td>
+          <td>Balbina Kherr</td>
+          <td>Coding</td>
+          <td>03-24-22</td>
+          <td>9:00AM</td>
+          <td>4:00PM</td>
+          <td><button>View</button></td>
+        </tr>
+        <tr>
+          <td>03</td>
+          <td>Badan John</td>
+          <td>testing</td>
+          <td>03-24-22</td>
+          <td>8:00AM</td>
+          <td>3:00PM</td>
+          <td><button>View</button></td>
+        </tr>
+        <tr>
+          <td>04</td>
+          <td>Sara David</td>
+          <td>Design</td>
+          <td>03-24-22</td>
+          <td>8:00AM</td>
+          <td>3:00PM</td>
+          <td><button>View</button></td>
+        </tr> -->
+</section>
+
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>

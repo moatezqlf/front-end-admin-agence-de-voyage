@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+</head>
+<body>
+    <style>
+        
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 80%;
+  margin: 20px auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+button {
+  margin: 0 10px;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+span.icon {
+  margin-right: 5px;
+}
+
+.add-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.edit-btn {
+  background-color: #ffc107;
+  color: white;
+}
+
+.delete-btn {
+  background-color: #f44336;
+  color: white;
+}
+
+/* Animation pour les boutons */
+button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background-color: white;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s, opacity 0.3s;
+  z-index: 0;
+}
+
+button:hover::before {
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+button:hover {
+  color: black;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: white;
+  margin: 15% auto;
+  padding: 20px;
+  width: 60%;
+  border-radius: 5px;
+  position: relative;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+    </style>
+
+
+<div class="sidebar">
+    <div class="logo-details">
+      <i class='bx bxl-c-plus-plus icon'></i>
+      <div class="logo_name">Travell Lmo</div>
+      <i class='bx bx-menu' id="btn"></i>
+    </div>
+    <ul class="nav-list">
+      <li>
+        <i class='bx bx-search'></i>
+        <input type="text" placeholder="Search...">
+        <span class="tooltip">Search</span>
+      </li>
+      <li>
+        <a href="index.html">
+          <i class='bx bx-grid-alt'></i>
+          <span class="links_name">Dashboard</span>
+        </a>
+        <span class="tooltip">Dashboard</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-user'></i>
+          <span class="links_name">User</span>
+        </a>
+        <span class="tooltip">User</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-chat'></i>
+          <span class="links_name">Voyage</span>
+        </a>
+        <span class="tooltip">Voyage</span>
+      </li>
+      <li>
+        <a href="hotel.html">
+          <i class='bx bx-pie-chart-alt-2'></i>
+          <span class="links_name">Hotels</span>
+        </a>
+        <span class="tooltip">Hotels</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-folder'></i>
+          <span class="links_name">Restaurent</span>
+        </a>
+        <span class="tooltip">Files</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-cart-alt'></i>
+          <span class="links_name">Photo</span>
+        </a>
+        <span class="tooltip">photo</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-heart'></i>
+          <span class="links_name">video</span>
+        </a>
+        <span class="tooltip">video</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-cog'></i>
+          <span class="links_name">Setting</span>
+        </a>
+        <span class="tooltip">Setting</span>
+      </li>
+      <li class="profile">
+        <div class="profile-details">
+          <img src="https://drive.google.com/uc?export=view&id=1ETZYgPpWbbBtpJnhi42_IR3vOwSOpR4z" alt="profileImg">
+          <div class="name_job">
+            <div class="name">Travell Lmo</div>
+            <div class="job">Guelma</div>
+          </div>
+        </div>
+        <i class='bx bx-log-out' id="log_out"></i>
+      </li>
+    </ul>
+  </div>
+  <section class="home-section">
+    <div class="text">Voyages</div>
+    
+
+    <div class="container">
+        <h1>Tableau des Voyages</h1>
+        <table id="voyage-table">
+          <thead>
+            <tr>
+              <th>Destination</th>
+              <th>Durée</th>
+              <th>Coût</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Les données seront ajoutées ici via JavaScript -->
+          </tbody>
+        </table>
+      </div>
+      
+      <div id="modal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <h2>Ajouter un Voyage</h2>
+          <form id="voyage-form">
+            <!-- Le formulaire pour ajouter un voyage -->
+            <label for="destination">Destination:</label>
+            <input type="text" id="destination" name="destination" required><br><br>
+            
+            <label for="duree">Durée:</label>
+            <input type="text" id="duree" name="duree" required><br><br>
+            
+            <label for="cout">Coût:</label>
+            <input type="text" id="cout" name="cout" required><br><br>
+            
+            <button type="submit" onclick="handleFormSubmit(event)">Ajouter</button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="button-container">
+        <button class="add-btn" onclick="openModal()">
+          <span class="icon">&#43;</span> Ajouter
+        </button>
+      </div>
+
+      <!-- ... (le reste du code reste le même) -->
+
+      <div id="modal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <h2>Ajouter un Voyage</h2>
+          <form id="voyage-form">
+            <!-- Le formulaire pour ajouter un voyage -->
+            <label for="destination">Destination:</label>
+            <input type="text" id="destination" name="destination" required><br><br>
+            
+            <label for="duree">Durée:</label>
+            <input type="text" id="duree" name="duree" required><br><br>
+            
+            <label for="cout">Coût:</label>
+            <input type="text" id="cout" name="cout" required><br><br>
+            
+            <!-- Ajout d'un bouton pour ajouter le voyage -->
+            <button type="button" onclick="ajouterVoyage()">Ajouter</button>
+    
+          </form>
+        </div>
+      </div>
+  
+  <!-- ... (le reste du code reste le même) -->
+  
+
+
+
+
+</body>
+<script  src="./script.js"></script>
+<script>
+// Données de voyages (exemple)
+// Tableau pour stocker les voyages
+let voyages = [
+  { destination: 'Paris', duree: '7 jours', cout: '$1500' },
+  { destination: 'Tokyo', duree: '10 jours', cout: '$2500' },
+  { destination: 'New York', duree: '5 jours', cout: '$1800' }
+  // Ajoute d'autres voyages ici si nécessaire
+];
+
+// Fonction pour afficher les voyages dans le tableau
+function afficherVoyages() {
+  const tableBody = document.querySelector('#voyage-table tbody');
+  tableBody.innerHTML = ''; // Efface le contenu existant du tableau
+
+  voyages.forEach((voyage, index) => {
+    const row = document.createElement('tr');
+
+    const destinationCell = document.createElement('td');
+    destinationCell.textContent = voyage.destination;
+    row.appendChild(destinationCell);
+
+    const dureeCell = document.createElement('td');
+    dureeCell.textContent = voyage.duree;
+    row.appendChild(dureeCell);
+
+    const coutCell = document.createElement('td');
+    coutCell.textContent = voyage.cout;
+    row.appendChild(coutCell);
+
+    tableBody.appendChild(row);
+  });
+}
+
+// Fonction pour ajouter un voyage
+function handleAdd() {
+  // Ajoute ici la logique pour ajouter un nouveau voyage au tableau
+  const newVoyage = { destination: 'Nouvelle Destination', duree: 'X jours', cout: '$YYY' };
+  voyages.push(newVoyage);
+  afficherVoyages(); // Met à jour l'affichage du tableau
+}
+
+// Fonction pour éditer un voyage
+//function handleEdit() {
+  // Ajoute ici la logique pour éditer un voyage dans le tableau
+  // Par exemple, modifier les valeurs d'une ligne existante
+ // voyages[0].destination = 'Destination Modifiée';
+ // afficherVoyages(); // Met à jour l'affichage du tableau
+//}
+
+// Fonction pour supprimer un voyage
+//function handleDelete() {
+  // Ajoute ici la logique pour supprimer un voyage du tableau
+//  voyages.splice(0, 1); // Supprime le premier voyage (indice 0)
+ // afficherVoyages(); // Met à jour l'affichage du tableau
+//}
+
+// Appel de la fonction pour afficher les voyages au chargement de la page
+window.onload = afficherVoyages;
+
+// ... (le reste du code reste le même)
+
+// Fonction pour ouvrir la modale
+function openModal() {
+  const modal = document.getElementById('modal');
+  modal.style.display = 'block';
+}
+
+// Fonction pour fermer la modale
+function closeModal() {
+  const modal = document.getElementById('modal');
+  modal.style.display = 'none';
+}
+
+// ... (le reste du code reste le même)
+
+// Fonction pour ajouter un voyage depuis la modale
+function ajouterVoyage() {
+  const destination = document.getElementById('destination').value;
+  const duree = document.getElementById('duree').value;
+  const cout = document.getElementById('cout').value;
+
+  // Vérifie que tous les champs sont remplis
+  if (destination && duree && cout) {
+    const newVoyage = { destination, duree, cout };
+    voyages.push(voyage-table);
+    afficherVoyages(); // Met à jour l'affichage du tableau
+    document.getElementById('voyage-form').reset(); // Réinitialise le formulaire après l'ajout
+    closeModal(); // Ferme la modale après l'ajout du voyage
+  } else {
+    alert("Veuillez remplir tous les champs du formulaire.");
+  }
+}
+// ... (le reste du code reste le même)
+
+// Fonction pour ajouter un voyage depuis la modale
+function ajouterVoyage() {
+  const destination = document.getElementById('destination').value;
+  const duree = document.getElementById('duree').value;
+  const cout = document.getElementById('cout').value;
+
+  // Vérifie que tous les champs sont remplis
+  if (destination && duree && cout) {
+    const newVoyage = { destination, duree, cout };
+    voyages.push(newVoyage);
+    afficherVoyages(); // Met à jour l'affichage du tableau
+    document.getElementById('voyage-form').reset(); // Réinitialise le formulaire après l'ajout
+    closeModal(); // Ferme la modale après l'ajout du voyage
+  } else {
+    alert("Veuillez remplir tous les champs du formulaire.");
+  }
+}
+
+
+
+
+</script>
+</html>
